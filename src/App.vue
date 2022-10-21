@@ -1,12 +1,23 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
+    <router-view />
+    <botNav v-if="showNav" />
   </div>
 </template>
+
+<script>
+import botNav from './components/botNav'
+export default {
+  components: {
+    botNav,
+  },
+  computed:{
+    showNav(){
+      return this.$route.meta.showNav
+    }
+  }
+}
+</script>
 
 <style lang="less">
 #app {
